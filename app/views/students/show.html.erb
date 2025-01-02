@@ -1,0 +1,9 @@
+<div class="card shadow-sm mx-auto mt-4" style="width: 20rem; border-radius: 10px;">
+  <div class="card-body text-center">
+    <h1 class="card-title h5 mb-4">View Student Info</h1>
+    <p class="card-text"><strong>Name:</strong> <%= @student.name %></p>
+    <p class="card-text"><strong>Age:</strong> <%= @student.age %></p>
+    <p class="card-text"><strong>Gender:</strong> <%= @student.gender %></p>
+    <%= link_to 'Back', students_path, class: 'btn btn-primary mt-3' %>
+  </div>
+</div>

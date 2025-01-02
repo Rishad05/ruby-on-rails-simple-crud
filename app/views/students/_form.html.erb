@@ -1,0 +1,32 @@
+<%= form_with model: student, local: true, class: 'needs-validation' do |form| %>
+    <% if @student.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h4 class="alert-heading"><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h4>
+        <ul class="mb-0">
+          <% @student.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control', placeholder: 'Enter name' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :age, class: 'form-label' %>
+      <%= form.number_field :age, class: 'form-control', placeholder: 'Enter age' %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :gender, class: 'form-label' %>
+      <%= form.select :gender, ['Male', 'Female', 'Other'], {}, class: 'form-select' %>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <%= form.submit 'Save Student', class: 'btn btn-primary' %>
+      <%= link_to 'Back', students_path, class: 'btn btn-secondary' %>
+    </div>
+<% end %>
